@@ -1,10 +1,9 @@
 # buttongame
 
 * This project is multiplayer button-clicking game. It has frontend made with React, backend made with Maven and Spring Boot using PostgreSQL database.
-* Players click button that increments counter from range 1-500. Every 10th, 100th or 500th click give player more credits.
+* Players click button that increments counter from range 1-500. Every 10th, 100th or 500th click gives players more credits.
 * Player receives unique personal id from backend that is used to recognize player on later sessions. Id is saved to frontend cookies and if cookie is deletes, progres is lost.
 * Players unique identifiers and scores are save to PostgreSQL database.
-*
 
 # Technologies
 
