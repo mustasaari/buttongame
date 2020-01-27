@@ -1,6 +1,6 @@
 # buttongame
 
-This project is
+This project is multiplayer button-clicking game. It has frontend made with React, backend made with Maven and Spring Boot using PostgreSQL database.
 
 # Technologies
 
