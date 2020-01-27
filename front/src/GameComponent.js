@@ -27,10 +27,10 @@ class GameComponent extends React.Component {
 
         if (cookies.get('mmbgcookie')) {
             this.setState({name: cookies.get('mmbgcookie')});
-            fetch(window.location.href +"credits/" +cookies.get('mmbgcookie')).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize}));
+            fetch("credits/" +cookies.get('mmbgcookie')).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize}));
         }
         else {
-            var userData = await fetch(window.location.href +"/create-user").then(response => response.json());
+            var userData = await fetch("/create-user").then(response => response.json());
             cookies.set('mmbgcookie', userData.name, { path: '/' });
             this.setState({name: userData.name});
             this.setState({credits: userData.credits, clicks: userData.clicksToPrize});
@@ -44,7 +44,7 @@ class GameComponent extends React.Component {
     */
 
     buttonRoll = () => {
-        fetch(window.location.href +"/roll/" +this.state.name).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize, message: response.message}));
+        fetch("/roll/" +this.state.name).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize, message: response.message}));
     }
 
     /*
