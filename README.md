@@ -29,6 +29,8 @@ Launch backend by typing:
 cd ..\back
 mvn spring-boot:run
 ```
+Notice : backend wont start if database is not configured in application.properties. See below.
+
 ### Database
 Download and install PostgreSQL 12
 Start database.
