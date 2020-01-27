@@ -21,6 +21,8 @@ npm install
 npm start
 ```
 
+Note: In package.json proxy has been configured to "http://localhost:8080". If server is running in other location, this must be configured correspondingly-
+
 ### Backend
 Backend is located in "back" -folder.
 Launch backend by typing:
