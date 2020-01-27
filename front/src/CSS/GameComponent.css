@@ -1,0 +1,13 @@
+.button {
+    padding: 20px 40px 20px 40px;
+    border-radius: 20px;
+    font-size: 20px;
+    margin-top: 20px;
+}
+
+.messageText {
+    background-color: lightgreen;
+    border-radius: 25px;
+    border: 1px solid black;
+    padding: 5px;
+}
