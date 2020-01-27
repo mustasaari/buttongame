@@ -18,6 +18,6 @@ Backend is located in "back" -folder.
 Launch backend by :
 
 ```
-cd ../front
+cd ../back
 mvn spring-boot:run
 ```
