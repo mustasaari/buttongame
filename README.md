@@ -4,9 +4,9 @@ This project is
 
 # Technologies
 
-React + npm
-Maven + Spring Boot
-PostgreSQL 12
+* React + npm
+* Maven + Spring Boot
+* PostgreSQL 12
 
 ### Frontend
 Frontend can be found in "front" -folder.
@@ -20,7 +20,7 @@ npm start
 
 ### Backend
 Backend is located in "back" -folder.
-Launch backend by :
+Launch backend by typing:
 
 ```
 cd ..\back
@@ -29,7 +29,7 @@ mvn spring-boot:run
 ### Database
 Download and install PostgreSQL 12
 Start database.
-Configure backend to use database :
+Configure backend to use database:
 ```
 cd ..\back\src\main\resources
 nano application.properties
