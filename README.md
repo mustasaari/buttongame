@@ -1,6 +1,7 @@
 # buttongame
 
 This project is multiplayer button-clicking game. It has frontend made with React, backend made with Maven and Spring Boot using PostgreSQL database.
+* Player receives unique personal id from backend that is used to recognize player on later sessions. Id is saved to frontend cookies and if cookie is deletes, progres is lost.
 
 # Technologies
 
