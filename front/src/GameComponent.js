@@ -9,6 +9,7 @@ class GameComponent extends React.Component {
         this.state = {
             name: "",
             message: "Welcome!",
+            rollEnabled: true,
         }
     }
 
@@ -31,7 +32,7 @@ class GameComponent extends React.Component {
         }
         else {
             var userData = await fetch("/create-user").then(response => response.json());
-            cookies.set('mmbgcookie', userData.name, { path: '/' });
+            cookies.set('mmbgcookie', userData.name, { path: '/', maxAge: 604800 });
             this.setState({name: userData.name});
             this.setState({credits: userData.credits, clicks: userData.clicksToPrize});
         }
@@ -44,7 +45,8 @@ class GameComponent extends React.Component {
     */
 
     buttonRoll = () => {
-        fetch("/roll/" +this.state.name).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize, message: response.message}));
+        this.setState({rollEnabled: false});
+        fetch("/roll/" +this.state.name).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize, message: response.message, rollEnabled: true}));
     }
 
     /*
@@ -58,7 +60,7 @@ class GameComponent extends React.Component {
                 <h1 className="messageText">{this.state.message}</h1>
                 <h2>You Have {this.state.credits} Credits</h2>
                 {this.state.clicks === 0 ? <h2>Roll to see how far the prize is...</h2> : <h2>Prize is just {this.state.clicks} clicks away...</h2>}
-                <button className="button" onClick={this.buttonRoll} disabled={this.state.credits <= 0 ? true : false}>ROLL</button>
+                <button className="button" onClick={this.buttonRoll} disabled={this.state.credits <= 0 || !this.state.rollEnabled ? true : false}>ROLL</button>
                 {this.state.credits === 0 && <div>
                     <p>You are out of credits. Press button to reset</p> 
                     <button className="button" onClick={this.buttonRoll}>Reset</button>
