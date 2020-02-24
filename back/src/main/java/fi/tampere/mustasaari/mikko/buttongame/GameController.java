@@ -12,7 +12,7 @@ import java.util.*;
 @RestController
 public class GameController {
 
-    int startingCredits = 20;
+    final int startingCredits = 20;
 
     @Autowired
     UserRepository gameRepository;
@@ -51,7 +51,7 @@ public class GameController {
     * Then winnings are calculated.
     */
 
-    @RequestMapping(value = "/roll/{id}", method= RequestMethod.GET)
+    @RequestMapping(value = "/roll/{id}", method= RequestMethod.POST)
         public UserModel roll(@PathVariable String id) {
 
         UserModel user = gameRepository.findByName(id);
@@ -90,7 +90,7 @@ public class GameController {
     * @return UserModel of UserId
     */
 
-    @RequestMapping(value ="credits/{id}", method= RequestMethod.GET)
+    @RequestMapping(value ="credits/{id}", method= RequestMethod.POST)
     public UserModel getScore(@PathVariable String id) {
         UserModel user = gameRepository.findByName(id);
         return user;

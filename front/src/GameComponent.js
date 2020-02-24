@@ -23,7 +23,7 @@ class GameComponent extends React.Component {
 
         console.log(window.location.href);
 
-        let cookies = new Cookies("MMVincitButtonGameCookie");
+        let cookies = new Cookies("MMButtonGameCookie");
         //cookies.remove('mmbgcookie');     //remove cookies for local testing
 
         if (cookies.get('mmbgcookie')) {
@@ -31,7 +31,7 @@ class GameComponent extends React.Component {
             fetch("credits/" +cookies.get('mmbgcookie')).then(response => response.json()).then(response => this.setState({credits : response.credits, clicks : response.clicksToPrize}));
         }
         else {
-            var userData = await fetch("/create-user").then(response => response.json());
+            let userData = await fetch("/create-user").then(response => response.json());
             cookies.set('mmbgcookie', userData.name, { path: '/', maxAge: 604800 });
             this.setState({name: userData.name});
             this.setState({credits: userData.credits, clicks: userData.clicksToPrize});
