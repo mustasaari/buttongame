@@ -90,7 +90,7 @@ public class GameController {
     * @return UserModel of UserId
     */
 
-    @RequestMapping(value ="credits/{id}", method= RequestMethod.POST)
+    @RequestMapping(value ="credits/{id}", method= RequestMethod.GET)
     public UserModel getScore(@PathVariable String id) {
         UserModel user = gameRepository.findByName(id);
         return user;
